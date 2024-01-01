@@ -92,7 +92,6 @@
 
 .rpgui-button.golden:before {
   white-space: nowrap;
-  display: inline-block;
   content: "";
   width: 34px;
   display: block;
