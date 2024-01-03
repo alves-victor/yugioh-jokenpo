@@ -1,5 +1,10 @@
 body{
     background-color: #111;
+    width: 100vw;
+}
+
+img{
+    border-radius: 8px;
 }
 
 .frame{
@@ -37,22 +42,27 @@ body{
     z-index: 3;
     display: flex;
     height: 100vh;
+    width: 100vw;
 }
 
 .container-left{
     width: 30%;
+    text-align: center;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 
 .score-box{
+    width: 100%;
     padding: 30px;
     background-color: #fff;
     text-align: center;
 }
 
 .card-details{
+    width: 100%;
     background-color: #fff;
     text-align: center;
     height: 100px;
@@ -68,4 +78,44 @@ body{
 
 .card-type{
     font-size: 20px;
+}
+
+.container-right{
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cards-section{
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-versus{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-in-field{
+    border: 1px solid #fff;
+    border-radius: 8px;
+}
+
+.versus-top{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.versus-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
