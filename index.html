@@ -27,16 +27,42 @@
             <div class="score-box frame">
                 <span class="score-points">Win: 0 | Lose: 0</span>
             </div>
+
             <div class="card-avatar">
-                <img alt="Imagem da carta selecionada" class="card-img">
+                <img class="card-img">
             </div>
+
             <div class="card-details frame">
-                <p class="card-name">name</p>
-                <p class="card-type">type</p>
+                <p class="card-name">card name</p>
+                <p class="card-type">card type</p>
             </div>
         </div>
         <div class="container-right">
+            <section class="cards-section framed enemy-side">
 
+            </section>
+
+            <section class="card-versus">
+                <div class="versus-top">
+                    <div class="card-in-field">
+                        <img id="player-field-card" height="180px" width="125px">
+                    </div>
+
+                    <img src="./src/assets/icons/millenium2.png" alt="olho do milênio" height="100px">
+
+                    <div class="card-in-field">
+                        <img id="enemy-field-card" height="180px" width="125px">
+                    </div>
+                </div>
+
+                <div class="versus-bottom">
+                    <button class="rpgui-button reset-btn" onclick="resetDuel()">Reset</button>
+                </div>
+            </section>
+
+            <section class="cards-section framed player-side">
+
+            </section>
         </div>
     </div>
 
