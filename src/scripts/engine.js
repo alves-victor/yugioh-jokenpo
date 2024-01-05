@@ -3,7 +3,7 @@ const state = {
     score:{
         playerScore: 0,
         enemyScore: 0,
-        scoreBox: document.querySelector(".score-box")
+        scorePoints: document.querySelector(".score-points")
     },
     cardInfo:{
         img: document.querySelector(".card-img"),
@@ -71,6 +71,49 @@ function getRandomCardId(){
 
 }
 
+function removeCardsFromHand(){
+    document.querySelectorAll(".cards-section").forEach(Element => Element.innerHTML = "");
+}
+
+function setCardsField(cardId){
+    removeCardsFromHand();
+
+    shuffleArray();
+    let enemyCardId = getRandomCardId();
+
+    state.fieldCards.playerChosenCard.style.display = "block";
+    state.fieldCards.enemyChosenCard.style.display = "block";
+
+    state.fieldCards.playerChosenCard.src = cardData[cardId].img;
+    state.fieldCards.enemyChosenCard.src = cardData[enemyCardId].img;
+
+    checkDuelResult(cardId, enemyCardId);
+    state.actions.resetBtn.style.display = "block";
+
+    countCardId = 0;
+    shuffledArray = [];
+}
+
+function playSound(status){
+    const audio = new Audio(`./src/assets/audios/${status}.wav`);
+    audio.volume = 0.2;
+    audio.play();
+}
+
+function checkDuelResult(playerCardId, enemyCardId){
+    let playerCard = cardData[playerCardId];
+
+    if(playerCard.winAgainst === enemyCardId){
+        state.score.playerScore++;
+        state.score.scorePoints.innerHTML = `Win: ${state.score.playerScore} | Lose: ${state.score.enemyScore}`;
+        playSound("win");
+    }else if(playerCard.loseAgainst === enemyCardId){
+        state.score.enemyScore++;
+        state.score.scorePoints.innerHTML = `Win: ${state.score.playerScore} | Lose: ${state.score.enemyScore}`;
+        playSound("lose");
+    }
+}
+
 function createCardImg(cardId, fieldSide){
     const cardImg = document.createElement("img");
     cardImg.setAttribute("height", "100px");
@@ -94,6 +137,7 @@ function showCardInfo(cardId){
     state.cardInfo.img.src = cardData[cardId].img;
     state.cardInfo.name.innerHTML = cardData[cardId].name;
     state.cardInfo.type.innerHTML = `Attribute: ${cardData[cardId].type}`;
+    state.cardInfo.img.style.display = "block";
 }
 
 function drawCards(cardNumber, fieldSide){
@@ -116,6 +160,23 @@ function drawCards(cardNumber, fieldSide){
 function init(){
     drawCards(3, "player");
     drawCards(3, "enemy");
+}
+
+function resetData(){
+    state.fieldCards.playerChosenCard.style.display = "none";
+    state.fieldCards.enemyChosenCard.style.display = "none";
+
+    state.cardInfo.img.style.display = "none";
+    state.cardInfo.name.innerHTML = "card name";
+    state.cardInfo.type.innerHTML = "card type";
+}
+
+function nextDuel(){
+    if(document.querySelector(".cards-section").innerHTML === ""){
+        resetData();
+        init();
+        state.actions.resetBtn.style.display = "none";
+    }
 }
 
 init();
