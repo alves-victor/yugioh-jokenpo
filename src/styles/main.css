@@ -1,6 +1,12 @@
 body{
     background-color: #111;
     width: 100vw;
+
+    cursor: url("../assets/cursor/yugicursor.png"), default;
+}
+
+.player-side img, button:hover{
+    cursor: url("../assets/cursor/yamiyugicursorGLOW.png"), auto;
 }
 
 img{
