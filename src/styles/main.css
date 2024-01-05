@@ -4,7 +4,7 @@ body{
 }
 
 img{
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .frame{
@@ -62,8 +62,10 @@ img{
 }
 
 .card-avatar{
-    height: 228px;
-    width: 171px;
+    min-height: 230px;
+    min-width: 172px;
+    border: 1px solid #ffd900;
+    border-radius: 12px;
 }
 
 .card-details{
@@ -119,7 +121,9 @@ img{
 
 .card-in-field{
     border: 1px solid #fff;
-    border-radius: 8px;
+    border-radius: 10px;
+    height: 180px;
+    width: 125px;
 }
 
 .versus-top{
@@ -133,4 +137,8 @@ img{
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.reset-btn{
+    display: none;
 }
