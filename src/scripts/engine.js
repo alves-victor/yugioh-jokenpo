@@ -160,6 +160,11 @@ function drawCards(cardNumber, fieldSide){
 function init(){
     state.fieldCards.playerChosenCard.style.display = "none";
     state.fieldCards.enemyChosenCard.style.display = "none";
+
+    const bgm = document.querySelector(".bgm");
+    bgm.volume = 0.1;
+    bgm.play();
+
     drawCards(3, "player");
     drawCards(3, "enemy");
 }
